@@ -46,7 +46,7 @@ Unity editor gives us the option to run the scene in the editor for debug purpos
 
 We can see the difference in frame times between both the scenes. When we use Object Pooling pattern, we get a much better performance than mass instantiating and destroying objects.
 
-In the release build, however, due to Unity's optimizations to code and creations of game objects, the difference was minimal between the two, object pool version and non object pool version. This was also due to us having high-end PCs, where we were achieving 1000-2000 frames per second in the game, which is quite high.
+In the release build, however, due to Unity's optimizations to code and creations of game objects, the difference was minimal between the two, object pool version and non object pool version. This was also due to us having high-end PCs, where we were achieving 1000-2000 frames per second in the game, which is quite high. Difference PC hardware might result in a different outcomes.
 
 ![Frame time in non object pool scenario in release build](_images/ReleaseNonPool.png "Frame time in non object pool scenario in release build")
 
