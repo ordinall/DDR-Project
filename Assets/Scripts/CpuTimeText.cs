@@ -8,6 +8,7 @@ public class CpuTimeText : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _textMesh;
 
+    private float _time;
     private float[] DeltaTimes = new float[100];
     private void Update()
     {
@@ -16,6 +17,7 @@ public class CpuTimeText : MonoBehaviour
             DeltaTimes[i] = DeltaTimes[i + 1];
         }
         DeltaTimes[DeltaTimes.Length - 1] = Time.deltaTime;
+        
         float average = 0;
         for (int i = 0; i < DeltaTimes.Length; i++)
         {
@@ -23,9 +25,11 @@ public class CpuTimeText : MonoBehaviour
         }
         average /= DeltaTimes.Length;
         // update text after a second
-        if (Time.frameCount % 60 == 0)
+        _time += Time.deltaTime;
+        if (_time > 1)
         {
             _textMesh.text = $"CPU Time: {average * 1000:0.00} ms";
+            _time = 0;
         }
     }
 }
