@@ -35,11 +35,12 @@ public class BulletControllerPooled : MonoBehaviour
                 bullet.transform.position = _bulletSpawnPoint.position;
                 bullet.transform.rotation = _bulletSpawnPoint.rotation;
                 bullet.SetActive(true);
+                bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.up * _bulletSpeed;
+                bulletCount++;
+                //Destroy(bullet, _bulletLifeTime);
+                StartCoroutine(destroyBullet(bullet));
             }
-            bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.up * _bulletSpeed;
-            bulletCount++;
-            //Destroy(bullet, _bulletLifeTime);
-            StartCoroutine(destroyBullet(bullet));
+            
         }
     }
 
