@@ -28,7 +28,7 @@ public class CpuTimeText : MonoBehaviour
         _time += Time.deltaTime;
         if (_time > 1)
         {
-            _textMesh.text = $"CPU Time: {average * 1000:0.00} ms";
+            _textMesh.text = $"Frame time: {average * 1000:0.00} ms";
             _time = 0;
         }
     }
